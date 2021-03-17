@@ -1,0 +1,10 @@
+destroy: function (req, res) {
+    Articles.destroy({ id: req.params.id }).exec(function (err) {
+      if (err) {
+        res.send(500, { error: "Database Error" });
+      }
+      return res.redirect("/articles/list");
+    });
+
+
+ 
